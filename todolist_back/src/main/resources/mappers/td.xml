@@ -6,7 +6,8 @@
 <mapper namespace="com.toyproject.todolist.repository.TodoListMapper">
 
     <insert id="save">
-
+        insert into todolist_tb
+        values(0, #{content}, #{status}, #{date});
     </insert>
 
     <update id="update"></update>

@@ -11,17 +11,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RestController
 @CrossOrigin
+@RestController
 @RequestMapping("/api/v1")
 public class TodoListController {
 
-    @Autowired
-    TodoListimpl todoListimpl;
+    private TodoListService todoListService;
 
     @PostMapping("/todo")
     public ResponseEntity<?> todoListAdd(@RequestBody ReqAddTodoDto reqAddToDoDto) {
-        return ResponseEntity.ok().body(null);
+        log.info(reqAddToDoDto.toString());
+        return ResponseEntity.ok().body(todoListService.addTodo(reqAddToDoDto));
     }
 
     @PutMapping("/todo/{todoId}")
