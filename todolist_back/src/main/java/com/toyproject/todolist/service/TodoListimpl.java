@@ -13,7 +13,6 @@ import java.util.List;
 @Service
 public class TodoListimpl implements TodoListService {
 
-
     @Autowired
     private TodoListMapper todoListMapper;
 
@@ -34,7 +33,7 @@ public class TodoListimpl implements TodoListService {
 
     @Override
     public int deleteTodo(int todoId) {
-        return 0;
+        return todoListMapper.delete(todoId);
     }
 
     @Override
@@ -44,6 +43,6 @@ public class TodoListimpl implements TodoListService {
 
     @Override
     public int checkedTodo(int todoId) {
-        return 0;
+        return todoListMapper.updateStatus(todoId);
     }
 }
