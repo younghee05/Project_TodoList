@@ -11,6 +11,6 @@ public interface TodoListMapper {
     int save(TodoList todoList);
     int update(TodoList todoList);
     int delete(int id);
-    List<TodoList> findTodoListByTodoId (TodoList todoList);
+    List<TodoList> findTodoListByTodoDate (String date);
     int updateStatus(int id);
 }
