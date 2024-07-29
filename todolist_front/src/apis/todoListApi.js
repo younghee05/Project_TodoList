@@ -1,8 +1,10 @@
-export async function getComputerApi(id) {
+import api from "./instance";
+
+export async function postTodoApi(todo) {
     let response = null;
 
     try {
-        response = await api.get(`/computer/${id}`); 
+        response = await api.post("/todo", todo); 
     } catch(e) {
         console.error(e);
         response = e.response.data;
