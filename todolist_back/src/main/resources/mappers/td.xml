@@ -10,8 +10,22 @@
     </insert>
 
     <update id="update"></update>
-    <update id="updateStatus"></update>
-    <delete id="delete"></delete>
+    <update id="updateStatus">
+        update
+            todolist_tb
+        set
+            status = not #{status}
+        where
+            todoId = #{todoId}
+    </update>
+
+    <delete id="delete" parameterType="integer">
+        delete
+        from
+            todolist_tb
+        where
+            todoId = #{todoId}
+    </delete>
     <select id="findTodoListByTodoId" resultType="com.toyproject.todolist.entity.TodoList"></select>
     <select id="findTodoListByTodoStatus" resultType="com.toyproject.todolist.entity.TodoList"></select>
 </mapper>
