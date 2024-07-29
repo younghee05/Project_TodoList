@@ -5,5 +5,14 @@ export const container = css`
     flex-direction: column;
     width: 400px;
     height: 700px;
+    margin: 10px;
     border: 2px solid #dbdbdb;
-`
+`;
+
+export const modalLayout = css`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+`;

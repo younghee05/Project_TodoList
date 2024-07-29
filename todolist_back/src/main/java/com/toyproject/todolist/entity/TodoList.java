@@ -16,13 +16,15 @@ public class TodoList {
     private int todoId;
     private String content;
     private int status;
-    private String todoDate;
+    private String date;
 
     public RespGetTodoListDto.Info toDto() {
         return RespGetTodoListDto.Info.builder()
                 .todoId(todoId)
                 .content(content)
-                .todoDate(todoDate)
+                .date(date)
                 .build();
     }
+    
+
 }

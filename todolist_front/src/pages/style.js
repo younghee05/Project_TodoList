@@ -15,3 +15,30 @@ export const layout = css`
 
     
 `;
+
+export const mainPageInput = css`
+    box-sizing: border-box;
+    display: flex;
+    width: 300px;
+    height: 40px;
+    border: none;
+
+`;
+
+export const input = css`
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    border: 1px solid #000000;
+
+`;
+
+export const mainPageButton = css`
+    box-sizing: border-box;
+    width: 50px;
+    border: 1px solid #000000;
+    border-left: none;
+    cursor: pointer;
+
+`
