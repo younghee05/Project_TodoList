@@ -14,6 +14,8 @@ function MainPage({children}) {
         date: ""
     });
 
+    const dateControl = document.querySelector('input[type="date"]')
+
     const handleInputChange = (e) => {
 
         setTodo(todo => {
