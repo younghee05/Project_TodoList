@@ -8,15 +8,15 @@ function MainPage({children}) {
     return (
         <div css={s.mainlayout}>
             <h1>TODOLIST</h1>
-            <div>
-                <input type="text" />
-                <button>추가</button>
+            <div css={s.input}>
+                <input type="text" css={s.mainPageInput} />
+                <button css={s.mainPageButton}>추가</button>
             </div>
             
             <div css={s.layout}>
                 <Container />
                 <Container />
-                <Container />
+                <Container />     
             </div>
         </div>
             
