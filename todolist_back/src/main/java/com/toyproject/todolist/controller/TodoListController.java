@@ -18,6 +18,9 @@ public class TodoListController {
 
     private TodoListService todoListService;
 
+    @Autowired
+    TodoListimpl todoListimpl;
+
     @PostMapping("/todo")
     public ResponseEntity<?> todoListAdd(@RequestBody ReqAddTodoDto reqAddToDoDto) {
         log.info(reqAddToDoDto.toString());
@@ -36,7 +39,7 @@ public class TodoListController {
 
     @GetMapping("/todolist/{todoDate}")
     public ResponseEntity<?> getTodoListAll(@PathVariable String todoDate) {
-        return ResponseEntity.ok().body(null);
+        return ResponseEntity.ok().body(todoListimpl.getTodoList());
     }
 
     @PutMapping("/todo/{todoId}/status")

@@ -13,7 +13,4 @@ public interface TodoListMapper {
     int delete(int id);
     List<TodoList> findTodoListByTodoId (TodoList todoList);
     int updateStatus(int id);
-
-
-
 }

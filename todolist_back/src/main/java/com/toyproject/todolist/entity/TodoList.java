@@ -1,5 +1,6 @@
 package com.toyproject.todolist.entity;
 
+import com.toyproject.todolist.dto.RespGetTodoListDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,4 +17,14 @@ public class TodoList {
     private String content;
     private int status;
     private String date;
+
+    public RespGetTodoListDto.Info toDto() {
+        return RespGetTodoListDto.Info.builder()
+                .todoId(todoId)
+                .content(content)
+                .date(date)
+                .build();
+    }
+    
+
 }

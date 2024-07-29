@@ -11,6 +11,17 @@
     </insert>
 
     <update id="update"></update>
+    <select id="findTodoListByTodoDate" resultType="com.toyproject.todolist.entity.TodoList">
+        select
+            todoId,
+            content,
+            todoDate
+        from
+            todolist_tb
+        where
+            todoDate like concat("%", #{todoDate}, "%")
+    </select>
+  
     <update id="updateStatus">
         update
             todolist_tb
@@ -27,6 +38,5 @@
         where
             todoId = #{todoId}
     </delete>
-    <select id="findTodoListByTodoId" resultType="com.toyproject.todolist.entity.TodoList"></select>
     <select id="findTodoListByTodoStatus" resultType="com.toyproject.todolist.entity.TodoList"></select>
 </mapper>

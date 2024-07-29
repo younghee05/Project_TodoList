@@ -2,6 +2,7 @@ package com.toyproject.todolist.service;
 
 import com.toyproject.todolist.dto.ReqAddTodoDto;
 import com.toyproject.todolist.dto.ReqUpdateTodoDto;
+import com.toyproject.todolist.dto.RespGetTodoListDto;
 import com.toyproject.todolist.entity.TodoList;
 import com.toyproject.todolist.repository.TodoListMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -33,7 +34,12 @@ public class TodoListimpl implements TodoListService {
 
     @Override
     public int deleteTodo(int todoId) {
-        return todoListMapper.delete(todoId);
+       return todoListMapper.delete(todoId);
+    }
+
+    @Override
+    public List<RespGetTodoListDto.Info> getTodoList() {
+        return RespGetTodoListDto.toList(todoListMapper.findTodoListByTodoDate());  
     }
 
     @Override
@@ -44,5 +50,6 @@ public class TodoListimpl implements TodoListService {
     @Override
     public int checkedTodo(int todoId) {
         return todoListMapper.updateStatus(todoId);
+
     }
 }
