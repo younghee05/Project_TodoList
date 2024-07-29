@@ -3,36 +3,58 @@ import React, { useState } from 'react';
 import * as s from "./style";
 import Container from '../components/Container/Container';
 import { mainlayout } from './style';
+import axios from 'axios';
+import { postTodoApi } from '../apis/todoListApi';
 
 function MainPage({children}) {
 
-    const [ content, setContent ] = useState({
-        content: ""
+    const [ todo, setTodo ] = useState({
+        content: "",
+        status: 0,
+        date: ""
     });
 
     const dateControl = document.querySelector('input[type="date"]')
 
     const handleInputChange = (e) => {
-        setContent(content => {
+
+        setTodo(todo => {
             return {
-                ...content,
-                [e.target.name]: e.target.value
+                ...todo,
+                [e.target.name]: e.target.value,
             }
         });
     }
 
-    const handleAddClick = (e) => {
-        console.log(dateControl.value);
-        console.log(content);
+    const handleAddClick = async() => {
+        console.log(todo);
+        const response = await postTodoApi(todo);
+        // try {
+           
+        //     // const data = await axios.post("http://localhost:8080/api/v1/todo", todo);
+        //     console.log(response);
+        // } catch (error) {
+        //     console.error(error);
+        // }
+
+        console.log(response)
+        
+       
+        setTodo({
+            content: "",
+            status: 0,
+            date: ""
+        });
+        
     }
 
     return (
         <div css={s.mainlayout}>
             <h1>TODOLIST</h1>
-            <div>
-                <input type="text" name='content' value={content.content} onChange={handleInputChange} />
-                <button onClick={handleAddClick}>추가</button>
-                <input type="date" />
+            <div css={s.mainPageInput}>
+                <input type="text" css={s.input} name='content' value={todo.content} onChange={handleInputChange} />
+                <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
+                <input type='date' name='date' onChange={handleInputChange}/>
             </div>
             
             <div css={s.layout}>

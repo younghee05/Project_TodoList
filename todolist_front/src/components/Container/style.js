@@ -5,6 +5,7 @@ export const container = css`
     flex-direction: column;
     width: 400px;
     height: 700px;
+    margin: 10px;
     border: 2px solid #dbdbdb;
 `;
 
