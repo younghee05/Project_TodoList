@@ -10,6 +10,8 @@ function MainPage({children}) {
         content: ""
     });
 
+    const dateControl = document.querySelector('input[type="date"]')
+
     const handleInputChange = (e) => {
         setContent(content => {
             return {
@@ -19,8 +21,8 @@ function MainPage({children}) {
         });
     }
 
-    const handleAddClick = () => {
-        
+    const handleAddClick = (e) => {
+        console.log(dateControl.value);
         console.log(content);
     }
 
@@ -30,9 +32,7 @@ function MainPage({children}) {
             <div>
                 <input type="text" name='content' value={content.content} onChange={handleInputChange} />
                 <button onClick={handleAddClick}>추가</button>
-                <select name="" id="">
-
-                </select>
+                <input type="date" />
             </div>
             
             <div css={s.layout}>

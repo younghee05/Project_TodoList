@@ -16,4 +16,5 @@ public class TodoList {
     private String content;
     private int status;
     private String todoDate;
+
 }
