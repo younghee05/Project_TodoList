@@ -15,11 +15,12 @@
         select
             todoId,
             content,
-            todoDate
+            status,
+            date
         from
             todolist_tb
         where
-            todoDate like concat("%", #{todoDate}, "%")
+            date like concat("%", #{date}, "%")
     </select>
   
     <update id="updateStatus">

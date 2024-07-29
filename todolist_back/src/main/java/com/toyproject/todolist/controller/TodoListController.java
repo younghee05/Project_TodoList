@@ -1,10 +1,9 @@
 package com.toyproject.todolist.controller;
 
 import com.toyproject.todolist.dto.ReqAddTodoDto;
-import com.toyproject.todolist.dto.ReqGetTodoListDto;
 import com.toyproject.todolist.dto.ReqUpdateTodoDto;
 import com.toyproject.todolist.service.TodoListService;
-import com.toyproject.todolist.service.TodoListimpl;
+import com.toyproject.todolist.service.TodoListServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 public class TodoListController {
 
+    @Autowired
     private TodoListService todoListService;
 
-    @Autowired
-    TodoListimpl todoListimpl;
 
     @PostMapping("/todo")
     public ResponseEntity<?> todoListAdd(@RequestBody ReqAddTodoDto reqAddToDoDto) {
@@ -34,17 +32,17 @@ public class TodoListController {
 
     @DeleteMapping("/todo/{todoId}")
     public ResponseEntity<?> todoListDelete(@PathVariable int todoId) {
-        return ResponseEntity.ok().body(todoListimpl.deleteTodo(todoId));
+        return ResponseEntity.ok().body(todoListService.deleteTodo(todoId));
     }
 
     @GetMapping("/todolist/{todoDate}")
     public ResponseEntity<?> getTodoListAll(@PathVariable String todoDate) {
-        return ResponseEntity.ok().body(todoListimpl.getTodoList());
+        return ResponseEntity.ok().body(todoListService.getTodoList(todoDate));
     }
 
     @PutMapping("/todo/{todoId}/status")
     public ResponseEntity<?> todoChecked(@PathVariable int todoId) {
-        return ResponseEntity.ok().body(todoListimpl.checkedTodo(todoId));
+        return ResponseEntity.ok().body(todoListService.checkedTodo(todoId));
     }
 
 
