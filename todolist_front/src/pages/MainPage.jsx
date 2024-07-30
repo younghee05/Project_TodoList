@@ -5,6 +5,7 @@ import Container from '../components/Container/Container';
 import { mainlayout } from './style';
 import axios from 'axios';
 import { postTodoApi } from '../apis/todoListApi';
+import { getTodoApi } from '../apis/computerApi';
 
 function MainPage({children}) {
 
@@ -14,14 +15,33 @@ function MainPage({children}) {
         date: ""
     });
 
+    const [ select, setSelect ] = useState([]);
+
+    const requestTodoList = async () => {
+
+        try {
+            const response = await axios.get("http://localhost:8080/api/v1/todolist/2024-05-30");
+            setSelect(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+ 
+    const handleSelectClick = async () => {
+        await requestTodoList();
+        console.log(select)
+    }
+
     const dateControl = document.querySelector('input[type="date"]')
 
     const handleInputChange = (e) => {
-
+        const str = e.target.value.substr(0, 7);
+        console.log(str);
         setTodo(todo => {
             return {
                 ...todo,
                 [e.target.name]: e.target.value,
+                date: str
             }
         });
     }
@@ -55,6 +75,8 @@ function MainPage({children}) {
                 <input css={s.dateInput} type='date' name='date' onChange={handleInputChange}/>
                 <input type="text" css={s.input} name='content' value={todo.content} onChange={handleInputChange} />
                 <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
+                <button css={s.mainPageButton} onClick={handleSelectClick}>조회</button>
+                <input type='date' name='date' onChange={handleInputChange}/>
             </div>
 
             <div css={s.dateInputPosition}>
@@ -62,7 +84,7 @@ function MainPage({children}) {
             </div>
 
             <div css={s.layout}>
-                <Container />
+                <Container select={select}/>
                 <Container />
                 <Container />
             </div>

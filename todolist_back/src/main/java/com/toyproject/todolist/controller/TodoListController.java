@@ -34,9 +34,9 @@ public class TodoListController {
         return ResponseEntity.ok().body(todoListService.deleteTodo(todoId));
     }
 
-    @GetMapping("/todolist/{todoDate}")
-    public ResponseEntity<?> getTodoListAll(@PathVariable String todoDate) {
-        return ResponseEntity.ok().body(todoListService.getTodoList(todoDate));
+    @GetMapping("/todolist/{date}")
+    public ResponseEntity<?> getTodoListAll(@PathVariable String date) {
+        return ResponseEntity.ok().body(todoListService.getTodoList(date));
     }
 
     @PutMapping("/todo/{todoId}/status")

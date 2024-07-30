@@ -14,11 +14,11 @@ export async function getComputerApi(id) {
 
 }
 
-export async function getComputerApi(params) {
+export async function getTodoApi(todoDate) {
     let response = null;
 
     try {
-        response = await api.get(`/computer`, {params}); 
+        response = await api.get(`/todolist/${todoDate}`, {todoDate}); 
     } catch(e) {
         console.error(e);
         response = e.response.data;
