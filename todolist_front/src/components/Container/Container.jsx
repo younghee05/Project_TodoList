@@ -3,6 +3,8 @@ import ReactModal from "react-modal";
 import * as s from "./style";
 
 import React, { useState } from 'react';
+import axios from "axios";
+import api from "../../apis/instance";
 
 function Container({ select }) {
 
@@ -16,8 +18,23 @@ function Container({ select }) {
     }
 
     //삭제 버튼 눌렀을 때
-    const handleDeleteClick = () => {
+    const handleDeleteClick = async (todoId) => {
+        if(window.confirm("삭제하시겠습니까?")) {
+            await requestDeleteTodo(todoId);
+            alert("삭제완료");
+        }
+    }
 
+    const requestDeleteTodo = async (todoId) => {
+        let responseData = null;
+
+        try {
+            const response = await api.delete(`/todo/${todoId}`);
+            responseData = response.data;
+        } catch (e) {
+            console.error(e);
+        }
+        return responseData;
     }
     
     //수정 버튼 눌렀을 때
@@ -66,12 +83,17 @@ function Container({ select }) {
                     </div>
                 </div>
             </ReactModal>
-            <div>
-                <input id="check" type="checkbox" name="" />
-                <label for="check ">할일</label>
-                <button onClick={handleUpdateClick}>수정</button>
-                <button onClick={handleDeleteClick}>삭제</button>
+
+            <div css={s.titleBox}>
+                <h2 css={s.h2Title}>제목</h2>
             </div>
+            <div css={s.listLayout}>
+                <input id="check" type="checkbox" name="" />
+                <label css={s.checkList} for="check">할일</label>
+                <button css={s.updateButton} onClick={handleUpdateClick}>수정</button>
+                <button css={s.deleteButton} onClick={handleDeleteClick}>삭제</button>
+            </div>
+            
         </div>
     );
 }

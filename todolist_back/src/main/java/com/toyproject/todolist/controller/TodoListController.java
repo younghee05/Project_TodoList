@@ -3,7 +3,6 @@ package com.toyproject.todolist.controller;
 import com.toyproject.todolist.dto.ReqAddTodoDto;
 import com.toyproject.todolist.dto.ReqUpdateTodoDto;
 import com.toyproject.todolist.service.TodoListService;
-import com.toyproject.todolist.service.TodoListServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
