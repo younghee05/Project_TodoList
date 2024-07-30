@@ -64,11 +64,15 @@ function Container(props) {
                     </div>
                 </div>
             </ReactModal>
-            <div>
+
+            <div css={s.titleBox}>
+                <h2 css={s.h2Title}>제목</h2>
+            </div>
+            <div css={s.listLayout}>
                 <input id="check" type="checkbox" name="" />
-                <label for="check ">할일</label>
-                <button onClick={handleUpdateClick}>수정</button>
-                <button onClick={handleDeleteClick}>삭제</button>
+                <label css={s.checkList} for="check">할일</label>
+                <button css={s.updateButton} onClick={handleUpdateClick}>수정</button>
+                <button css={s.deleteButton} onClick={handleDeleteClick}>삭제</button>
             </div>
         </div>
     );

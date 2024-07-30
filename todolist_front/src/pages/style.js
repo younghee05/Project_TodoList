@@ -19,7 +19,7 @@ export const layout = css`
 export const mainPageInput = css`
     box-sizing: border-box;
     display: flex;
-    width: 300px;
+    width: 450px;
     height: 40px;
     border: none;
 
@@ -36,9 +36,18 @@ export const input = css`
 
 export const mainPageButton = css`
     box-sizing: border-box;
-    width: 50px;
+    width: 70px;
     border: 1px solid #000000;
     border-left: none;
     cursor: pointer;
+`;
 
-`
+export const h1Title = css`
+    margin: 5px 0px;
+`;
+
+export const dateInput = css`
+    box-sizing: border-box;
+    margin-right: 5px;
+    width: 120px;
+`;
