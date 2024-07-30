@@ -33,6 +33,7 @@ export const h2Title = css`
 export const listLayout = css`
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     margin-top: 12px;
     width: 100%;
 `;
