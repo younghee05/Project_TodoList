@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class ReqGetTodoListDto {
-    private String todoDate;
+    private String date;
 }

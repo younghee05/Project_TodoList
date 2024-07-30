@@ -43,11 +43,6 @@ public class TodoListimpl implements TodoListService {
     }
 
     @Override
-    public List<?> getTodoList(String todoDate) {
-        return List.of();
-    }
-
-    @Override
     public int checkedTodo(int todoId) {
         return todoListMapper.updateStatus(todoId);
 

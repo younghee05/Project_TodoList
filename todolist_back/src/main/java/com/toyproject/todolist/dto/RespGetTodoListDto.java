@@ -14,7 +14,7 @@ public class RespGetTodoListDto {
     public static class Info {
         private int todoId;
         private String content;
-        private String todoDate;
+        private String date;
     }
 
     public static List<Info> toList(List<TodoList> todoList) {
