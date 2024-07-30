@@ -6,12 +6,14 @@ import React, { useState } from 'react';
 import axios from "axios";
 import api from "../../apis/instance";
 
-function Container({ select }) {
+function Container({ todoList }) {
 
     const [ isModalOpen, setModalOpen ] = useState(false);
 
     const [ content, setContent ] = useState();
 
+
+    console.log(todoList);
 
     const handleInputChange = (e) => {
         setContent(e.target.value);
@@ -40,7 +42,6 @@ function Container({ select }) {
     //수정 버튼 눌렀을 때
     const handleUpdateClick = () => {
         setModalOpen(true);
-        console.log(select)
     }
 
     const handleCancelClick = () => {
@@ -88,10 +89,19 @@ function Container({ select }) {
                 <h2 css={s.h2Title}>제목</h2>
             </div>
             <div css={s.listLayout}>
-                <input id="check" type="checkbox" name="" />
-                <label css={s.checkList} for="check">할일</label>
-                <button css={s.updateButton} onClick={handleUpdateClick}>수정</button>
-                <button css={s.deleteButton} onClick={handleDeleteClick}>삭제</button>
+                {
+                    todoList && todoList.map(todo => 
+                        <div>
+                            <input id={todo.todoId} type="checkbox" name="" />
+                            <label for={todo.todoId}>{todo.content}</label>
+                            <button css={s.updateButton} onClick={handleUpdateClick}>수정</button>
+                            <button css={s.deleteButton} onClick={handleDeleteClick}>삭제</button>
+                        </div>
+                    )
+                }
+                        
+                        
+                
             </div>
             
         </div>
