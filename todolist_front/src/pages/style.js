@@ -11,9 +11,8 @@ export const layout = css`
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
 
-    
 `;
 
 export const mainPageInput = css`
@@ -50,4 +49,17 @@ export const dateInput = css`
     box-sizing: border-box;
     margin-right: 5px;
     width: 120px;
+`;
+
+export const dateInputPosition = css`
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+`;
+
+export const dateInput2 = css`
+    box-sizing: border-box;
+    margin-left: 85px;
+    width: 120px;
+    height: 35px;
 `;
