@@ -3,6 +3,8 @@ import ReactModal from "react-modal";
 import * as s from "./style";
 
 import React, { useState } from 'react';
+import axios from "axios";
+import api from "../../apis/instance";
 
 function Container(props) {
 
@@ -15,8 +17,23 @@ function Container(props) {
     }
 
     //삭제 버튼 눌렀을 때
-    const handleDeleteClick = () => {
+    const handleDeleteClick = async (todoId) => {
+        if(window.confirm("삭제하시겠습니까?")) {
+            await requestDeleteTodo(todoId);
+            alert("삭제완료");
+        }
+    }
 
+    const requestDeleteTodo = async (todoId) => {
+        let responseData = null;
+
+        try {
+            const response = await api.delete(`/todo/${todoId}`);
+            responseData = response.data;
+        } catch (e) {
+            console.error(e);
+        }
+        return responseData;
     }
     
     //수정 버튼 눌렀을 때
