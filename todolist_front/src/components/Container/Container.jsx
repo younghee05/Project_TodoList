@@ -4,11 +4,12 @@ import * as s from "./style";
 
 import React, { useState } from 'react';
 
-function Container(props) {
+function Container({ select }) {
 
     const [ isModalOpen, setModalOpen ] = useState(false);
 
     const [ content, setContent ] = useState();
+
 
     const handleInputChange = (e) => {
         setContent(e.target.value);
@@ -22,6 +23,7 @@ function Container(props) {
     //수정 버튼 눌렀을 때
     const handleUpdateClick = () => {
         setModalOpen(true);
+        console.log(select)
     }
 
     const handleCancelClick = () => {
