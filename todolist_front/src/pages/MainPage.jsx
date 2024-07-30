@@ -50,13 +50,14 @@ function MainPage({children}) {
 
     return (
         <div css={s.mainlayout}>
-            <h1>TODOLIST</h1>
+            <h1 css={s.h1Title}>TODOLIST</h1>
             <div css={s.mainPageInput}>
+                <input css={s.dateInput} type='date' name='date' onChange={handleInputChange}/>
                 <input type="text" css={s.input} name='content' value={todo.content} onChange={handleInputChange} />
                 <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
-                <input type='date' name='date' onChange={handleInputChange}/>
             </div>
-            
+
+
             <div css={s.layout}>
                 <Container />
                 <Container />
