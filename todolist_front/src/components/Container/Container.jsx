@@ -91,6 +91,7 @@ function Container(props) {
                 <button css={s.updateButton} onClick={handleUpdateClick}>수정</button>
                 <button css={s.deleteButton} onClick={handleDeleteClick}>삭제</button>
             </div>
+            
         </div>
     );
 }

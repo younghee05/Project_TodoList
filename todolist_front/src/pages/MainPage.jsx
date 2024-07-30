@@ -57,6 +57,9 @@ function MainPage({children}) {
                 <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
             </div>
 
+            <div css={s.dateInputPosition}>
+                <input css={s.dateInput2} type='date' name='date' onChange={handleInputChange}/>
+            </div>
 
             <div css={s.layout}>
                 <Container />
