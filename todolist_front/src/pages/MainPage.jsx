@@ -15,24 +15,31 @@ function MainPage({children}) {
         date: ""
     });
 
-    const [ select, setSelect ] = useState([]);
+    const [ selectDate, setSelectDate ] = useState("");
 
-    const requestTodoList = async () => {
+    const [ todoList, setTodoList ] = useState([]);
+
+    const requestTodoList = async (selectDate) => {
 
         try {
-            const response = await axios.get("http://localhost:8080/api/v1/todolist/2024-05-30");
-            setSelect(response.data);
+            const response = await axios.get(`http://localhost:8080/api/v1/todolist/${selectDate}`);
+            setTodoList(response.data);
         } catch (error) {
             console.error(error);
         }
     }
  
+    //조회
     const handleSelectClick = async () => {
-        await requestTodoList();
-        console.log(select)
+        await requestTodoList(selectDate);
+        console.log(selectDate)
     }
 
-    const dateControl = document.querySelector('input[type="date"]')
+    const handleSelectInputChange = (e) => {
+        const str = e.target.value.substr(0, 7);
+        console.log(str);
+        setSelectDate(str);
+    }
 
     const handleInputChange = (e) => {
         const str = e.target.value.substr(0, 7);
@@ -40,8 +47,7 @@ function MainPage({children}) {
         setTodo(todo => {
             return {
                 ...todo,
-                [e.target.name]: e.target.value,
-                date: str
+                [e.target.name]: e.target.value
             }
         });
     }
@@ -84,9 +90,9 @@ function MainPage({children}) {
                 </div>
 
                 <div css={s.layout}>
-                    <Container select={select}/>
-                    <Container />
-                    <Container />
+                    <Container todoList={todoList}/>
+                    <Container todoList={todoList}/>
+                    <Container todoList={todoList} />
                 </div>
             </div>
         </div>
