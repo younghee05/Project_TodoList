@@ -55,10 +55,12 @@ function MainPage({children}) {
                 <input type="text" css={s.input} name='content' value={todo.content} onChange={handleInputChange} />
                 <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
                 <input type='date' name='date' onChange={handleInputChange}/>
+                <button css={s.mainPageButton} onClick={handleAddClick}>조회</button>
             </div>
             
             <div css={s.layout}>
-                <Container />
+                <Container todoL ={todo}
+                    />
                 <Container />
                 <Container />
             </div>

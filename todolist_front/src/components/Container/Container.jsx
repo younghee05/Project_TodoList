@@ -3,10 +3,18 @@ import ReactModal from "react-modal";
 import * as s from "./style";
 
 import React, { useState } from 'react';
+import { getTodoListApi } from "../../apis/todoListApi";
 
-function Container(props) {
+function Container({ todoL }) {
 
     const [ isModalOpen, setModalOpen ] = useState(false);
+
+    const [ todo, setTodo ] = useState({
+        todoId: "",
+        content: "",
+        status: "",
+        date: ""
+    });
 
     const [ content, setContent ] = useState();
 
@@ -16,7 +24,7 @@ function Container(props) {
 
     //삭제 버튼 눌렀을 때
     const handleDeleteClick = () => {
-
+        console.log(todoL);
     }
     
     //수정 버튼 눌렀을 때
@@ -65,6 +73,7 @@ function Container(props) {
                 </div>
             </ReactModal>
             <div>
+
                 <input id="check" type="checkbox" name="" />
                 <label for="check ">할일</label>
                 <button onClick={handleUpdateClick}>수정</button>

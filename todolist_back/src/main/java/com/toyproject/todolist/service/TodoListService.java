@@ -11,7 +11,7 @@ public interface TodoListService {
     int addTodo(ReqAddTodoDto reqAddTodoDto);
     int updateTodo(ReqUpdateTodoDto reqUpdateTodoDto);
     int deleteTodo(int todoId);
-    List<RespGetTodoListDto.Info> getTodoList();
+    List<RespGetTodoListDto> getTodoList(String date);
     int checkedTodo(int todoId);
 
 }

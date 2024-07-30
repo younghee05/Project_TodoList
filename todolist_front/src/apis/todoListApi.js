@@ -11,5 +11,15 @@ export async function postTodoApi(todo) {
     }
 
     return response;
+}
 
+export async function getTodoListApi(date) {
+    let response = null;
+
+    try {
+        response = await api.get(`/todolist/${date}`);
+    } catch (e) {
+        console.error(e);
+    }
+    return response;
 }

@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 public class TodoListController {
 
-    private TodoListService todoListService;
-
     @Autowired
-    TodoListimpl todoListimpl;
+    private TodoListService todoListService;
 
     @PostMapping("/todo")
     public ResponseEntity<?> todoListAdd(@RequestBody ReqAddTodoDto reqAddToDoDto) {
@@ -34,17 +32,18 @@ public class TodoListController {
 
     @DeleteMapping("/todo/{todoId}")
     public ResponseEntity<?> todoListDelete(@PathVariable int todoId) {
-        return ResponseEntity.ok().body(todoListimpl.deleteTodo(todoId));
+        return ResponseEntity.ok().body(todoListService.deleteTodo(todoId));
     }
 
+    //http://localhost:8080/todolist/2024-07
     @GetMapping("/todolist/{todoDate}")
     public ResponseEntity<?> getTodoListAll(@PathVariable String todoDate) {
-        return ResponseEntity.ok().body(todoListimpl.getTodoList());
+        return ResponseEntity.ok().body(todoListService.getTodoList(todoDate));
     }
 
     @PutMapping("/todo/{todoId}/status")
     public ResponseEntity<?> todoChecked(@PathVariable int todoId) {
-        return ResponseEntity.ok().body(todoListimpl.checkedTodo(todoId));
+        return ResponseEntity.ok().body(todoListService.checkedTodo(todoId));
     }
 
 
