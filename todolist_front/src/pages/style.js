@@ -15,6 +15,12 @@ export const layout = css`
 
 `;
 
+export const dateInputOrContainerLayout = css`
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+`;
+
 export const mainPageInput = css`
     box-sizing: border-box;
     display: flex;
@@ -59,7 +65,7 @@ export const dateInputPosition = css`
 
 export const dateInput2 = css`
     box-sizing: border-box;
-    margin-left: 85px;
+    margin-left: 30px;
     width: 120px;
     height: 35px;
 `;

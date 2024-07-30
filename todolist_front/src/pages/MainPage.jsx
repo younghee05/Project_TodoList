@@ -76,17 +76,18 @@ function MainPage({children}) {
                 <input type="text" css={s.input} name='content' value={todo.content} onChange={handleInputChange} />
                 <button css={s.mainPageButton} onClick={handleAddClick}>추가</button>
                 <button css={s.mainPageButton} onClick={handleSelectClick}>조회</button>
-                <input type='date' name='date' onChange={handleInputChange}/>
             </div>
 
-            <div css={s.dateInputPosition}>
-                <input css={s.dateInput2} type='date' name='date' onChange={handleInputChange}/>
-            </div>
+            <div css={s.dateInputOrContainerLayout}>
+                <div css={s.dateInputPosition}>
+                        <input css={s.dateInput2} type='date' name='date' onChange={handleInputChange}/>
+                </div>
 
-            <div css={s.layout}>
-                <Container select={select}/>
-                <Container />
-                <Container />
+                <div css={s.layout}>
+                    <Container select={select}/>
+                    <Container />
+                    <Container />
+                </div>
             </div>
         </div>
             
